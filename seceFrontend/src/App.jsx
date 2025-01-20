@@ -8,6 +8,7 @@ import Comfour from './components/FunctionalComponents/Comfour';
 import Comfive from './components/FunctionalComponents/Comfive';
 import Gallery from './components/FunctionalComponents/gallery';
 import ClassCompEG from'./components/classComponents/ClassCompEG';
+import Contact from './components/FunctionalComponents/Contact';
 
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
       <Comfour/>
       <Comfive/>
       <ClassCompEG/>
-      <Gallery/>
-      
+      <Gallery image=" time" page="Gallery"/>
+      <Contact/>
       
     </div>
   )
