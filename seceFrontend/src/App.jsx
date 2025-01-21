@@ -2,6 +2,7 @@
 import './App.css'
 import Home from './components/FunctionalComponents/Home';
 import Comone from './components/FunctionalComponents/Comone';
+import About from './components/FunctionalComponents/About';
 import Comtwo from './components/FunctionalComponents/Comtwo';
 import Comthree from './components/FunctionalComponents/Comthree';
 import Comfour from './components/FunctionalComponents/Comfour';
@@ -17,6 +18,7 @@ function App() {
   return (
     <div>
       <Home/>
+      <About/>
       <Comone/>
       <Comtwo/>
       <Comthree/>
