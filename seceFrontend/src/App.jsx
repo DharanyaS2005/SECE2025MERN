@@ -1,34 +1,27 @@
 
 import './App.css'
 import Home from './components/FunctionalComponents/Home';
-import Comone from './components/FunctionalComponents/Comone';
 import About from './components/FunctionalComponents/About';
-import Comtwo from './components/FunctionalComponents/Comtwo';
-import Comthree from './components/FunctionalComponents/Comthree';
-import Comfour from './components/FunctionalComponents/Comfour';
-import Comfive from './components/FunctionalComponents/Comfive';
 import Gallery from './components/FunctionalComponents/gallery';
-import ClassCompEG from'./components/classComponents/ClassCompEG';
 import Contact from './components/FunctionalComponents/Contact';
-
+import Navbar from './components/FunctionalComponents/Navbar';
+import Signup from './components/FunctionalComponents/Signup';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 function App() {
-
-
   return (
-    <div>
-      <Home/>
-      <About/>
-      <Comone/>
-      <Comtwo/>
-      <Comthree/>
-      <Comfour/>
-      <Comfive/>
-      <ClassCompEG/>
-      <Gallery image=" time" page="Gallery"/>
-      <Contact/>
-      
-    </div>
+    <>
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+      <Route path="/" element={<Home />} ></Route>
+      <Route path="/about" element={<About />} ></Route>
+      <Route path="/gallery" element={<Gallery page="Gallery" img ="time"/>} ></Route>
+      <Route path="/contact" element={<Contact />} ></Route>
+      <Route path="/signup" element={<Signup />} ></Route>
+     </Routes>
+    </BrowserRouter>
+    </>
   )
 }
 
