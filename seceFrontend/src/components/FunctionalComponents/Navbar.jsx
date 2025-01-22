@@ -23,6 +23,7 @@ const Navbar = () => {
           <ul>
             <li><Link to='/usestate'>useState</Link></li>
             <li><Link to='/useeffect'>useEffect</Link></li>
+            <li><Link to='/useapi'>useAPI</Link></li>
           </ul>)}
         </div>
       </ol>
