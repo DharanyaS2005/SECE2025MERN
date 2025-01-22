@@ -7,6 +7,8 @@ import Contact from './components/FunctionalComponents/Contact';
 import Navbar from './components/FunctionalComponents/Navbar';
 import Signup from './components/FunctionalComponents/Signup';
 import Login from './components/FunctionalComponents/Login';
+import UseState from './components/FunctionalComponents/Hooks/UseState';
+import UseEffect from './components/FunctionalComponents/Hooks/UseEffect';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -30,7 +32,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {isAuthenticated ? (
+       {isAuthenticated ? (
           <>
             <Navbar />
             <Routes>
@@ -38,6 +40,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/gallery" element={<Gallery page="Gallery" img="time" />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/usestate" element={<UseState />} />
+              <Route path="/useeffect" element={<UseEffect />} />
             </Routes>
           </>
         ) : (
