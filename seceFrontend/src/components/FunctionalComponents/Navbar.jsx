@@ -30,6 +30,9 @@ const Navbar = () => {
                 <li><Link to="/useapi" className="link">useAPI</Link></li>
                 <li><Link to="/usered" className="link">useReducer</Link></li>
                 <li><Link to="/useimg" className="link">useAPIimg</Link></li>
+                <li><Link to="/useref" className="link">useRef</Link></li>
+                <li><Link to="/usememo" className="link">useMemo</Link></li>
+                <li><Link to="/usecall" className="link">useCall</Link></li>
               </ul>
             )}
           </li>
