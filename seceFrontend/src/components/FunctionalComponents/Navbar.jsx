@@ -17,6 +17,7 @@ const Navbar = () => {
           <li><Link to="/about" className="link">About</Link></li>
           <li><Link to="/gallery" className="link">Gallery</Link></li>
           <li><Link to="/contact" className="link">Contact</Link></li>
+          
           <li
             className="dropdown"
             onMouseEnter={toggleDropdown}
@@ -25,6 +26,7 @@ const Navbar = () => {
             <span className="link">Hooks</span>
             {dropDown && (
               <ul className="dropdown-box">
+                <li><Link to="/reactlm" className="link">lifecycle</Link></li>
                 <li><Link to="/usestate" className="link">useState</Link></li>
                 <li><Link to="/useeffect" className="link">useEffect</Link></li>
                 <li><Link to="/useapi" className="link">useAPI</Link></li>
