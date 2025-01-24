@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Comone = () => {
   return (
     <div>
-      <h1>This is component one</h1>
+      <h1>This is Component One</h1>
     </div>
-  )
-}
+  );
+};
 
 export default Comone;

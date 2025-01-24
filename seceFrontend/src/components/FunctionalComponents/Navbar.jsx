@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import "../../css/Nav.css";
 
 const Navbar = () => {
-  const [dropDown, setDropdown] = useState(false);
+  const [memodropDown, setmDropdown] = useState(false);
+  const [hookdropDown, sethDropdown] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdown((prevState) => !prevState);
+  const togglemDropdown = () => {
+    setmDropdown((prevState) => !prevState);
+  };
+  const togglehDropdown = () => {
+    sethDropdown((prevState) => !prevState);
   };
 
   return (
@@ -17,17 +21,29 @@ const Navbar = () => {
           <li><Link to="/about" className="link">About</Link></li>
           <li><Link to="/gallery" className="link">Gallery</Link></li>
           <li><Link to="/contact" className="link">Contact</Link></li>
-          <li><Link to="/memo" className="link">Memo</Link></li>
+          <li
+            className="dropdown"
+            onMouseEnter={togglemDropdown}
+            onMouseLeave={togglemDropdown}
+          >
+            <span className="link">Memoization</span>
+            {memodropDown && (
+              <ul className="dropdown-box">
+                <li><Link to="/memo" className="link">Memo</Link></li>
+              </ul>
+            )}
+            </li>
           
           <li
             className="dropdown"
-            onMouseEnter={toggleDropdown}
-            onMouseLeave={toggleDropdown}
+            onMouseEnter={togglehDropdown}
+            onMouseLeave={togglehDropdown}
           >
             <span className="link">Hooks</span>
-            {dropDown && (
+            {hookdropDown && (
               <ul className="dropdown-box">
                 <li><Link to="/reactlm" className="link">lifecycle</Link></li>
+                <li><Link to="/fun-in-class" className="link">callFun</Link></li>
                 <li><Link to="/usestate" className="link">useState</Link></li>
                 <li><Link to="/useeffect" className="link">useEffect</Link></li>
                 <li><Link to="/useapi" className="link">useAPI</Link></li>

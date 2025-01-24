@@ -16,6 +16,7 @@ import UseRef from './components/FunctionalComponents/Hooks/UseRef'
 import UseMemo from './components/FunctionalComponents/Hooks/UseMemo'
 import UseCallback from './components/FunctionalComponents/Hooks/UseCallback';
 import ReactLifecycle from './components/classComponents/ReactLifecycle';
+import ClassCompEG from './components/classComponents/ClassCompEG';
 import UseContext from './components/FunctionalComponents/Hooks/UseContext';
 import Memo from './components/FunctionalComponents/Memoization/Memo'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -59,6 +60,7 @@ function App() {
               <Route path="/usecon" element={<UseContext/>}/>
               <Route path="/memo" element={<Memo/>} />
               <Route path="/reactlm" element={<ReactLifecycle/>}/>
+              <Route path="/fun-in-class" element={<ClassCompEG/>}/>
             </Routes>
           </>
         ) : (
