@@ -30,6 +30,7 @@ const Navbar = () => {
             {memodropDown && (
               <ul className="dropdown-box">
                 <li><Link to="/memo" className="link">Memo</Link></li>
+                <li><Link to="/lazy" className="link">Lazy</Link></li>
               </ul>
             )}
             </li>
@@ -53,6 +54,7 @@ const Navbar = () => {
                 <li><Link to="/usememo" className="link">useMemo</Link></li>
                 <li><Link to="/usecall" className="link">useCall</Link></li>
                 <li><Link to="/usecon" className="link">useContext</Link></li>
+                <li><Link to="/uselocal" className="link">useLocal</Link></li>
               </ul>
             )}
           </li>

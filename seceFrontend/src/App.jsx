@@ -19,6 +19,8 @@ import ReactLifecycle from './components/classComponents/ReactLifecycle';
 import ClassCompEG from './components/classComponents/ClassCompEG';
 import UseContext from './components/FunctionalComponents/Hooks/UseContext';
 import Memo from './components/FunctionalComponents/Memoization/Memo'
+import LazyLoading from './components/FunctionalComponents/Memoization/LazyLoading';
+import UseLocalStorage from './components/FunctionalComponents/Hooks/UseLocalStorage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -59,8 +61,10 @@ function App() {
               <Route path="/usecall" element={<UseCallback/>} />
               <Route path="/usecon" element={<UseContext/>}/>
               <Route path="/memo" element={<Memo/>} />
+              <Route path="/lazy" element={<LazyLoading/>} />
               <Route path="/reactlm" element={<ReactLifecycle/>}/>
               <Route path="/fun-in-class" element={<ClassCompEG/>}/>
+              <Route path="/uselocal" element={<UseLocalStorage/>}/>
             </Routes>
           </>
         ) : (
