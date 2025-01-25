@@ -21,6 +21,7 @@ import UseContext from './components/FunctionalComponents/Hooks/UseContext';
 import Memo from './components/FunctionalComponents/Memoization/Memo'
 import LazyLoading from './components/FunctionalComponents/Memoization/LazyLoading';
 import UseLocalStorage from './components/FunctionalComponents/Hooks/UseLocalStorage';
+import HoC from './components/FunctionalComponents/HoC/HoC';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
               <Route path="/reactlm" element={<ReactLifecycle/>}/>
               <Route path="/fun-in-class" element={<ClassCompEG/>}/>
               <Route path="/uselocal" element={<UseLocalStorage/>}/>
+              <Route path="/hoc" element={<HoC/>}/>
             </Routes>
           </>
         ) : (
