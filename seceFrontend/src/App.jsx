@@ -22,7 +22,10 @@ import Memo from './components/FunctionalComponents/Memoization/Memo'
 import LazyLoading from './components/FunctionalComponents/Memoization/LazyLoading';
 import UseLocalStorage from './components/FunctionalComponents/Hooks/UseLocalStorage';
 import HoC from './components/FunctionalComponents/HoC/HoC';
+import Dtoggle from './components/FunctionalComponents/Hooks/CustomHooks/Dtoggle';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -67,6 +70,7 @@ function App() {
               <Route path="/fun-in-class" element={<ClassCompEG/>}/>
               <Route path="/uselocal" element={<UseLocalStorage/>}/>
               <Route path="/hoc" element={<HoC/>}/>
+              <Route path="/cushook" element={<Dtoggle/>}/>
             </Routes>
           </>
         ) : (

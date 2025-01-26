@@ -56,6 +56,7 @@ const Navbar = () => {
                 <li><Link to="/usecall" className="link">useCall</Link></li>
                 <li><Link to="/usecon" className="link">useContext</Link></li>
                 <li><Link to="/uselocal" className="link">useLocal</Link></li>
+                <li><Link to="/cushook" className="link">CustomHook</Link></li>
               </ul>
             )}
           </li>
