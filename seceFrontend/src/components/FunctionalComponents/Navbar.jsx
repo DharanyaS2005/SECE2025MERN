@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "../../css/Nav.css";
 
-const Navbar = () => {
+const Navbar = ({ setIsLoggedIn }) => {
   const [memodropDown, setmDropdown] = useState(false);
   const [hookdropDown, sethDropdown] = useState(false);
 
@@ -12,12 +12,15 @@ const Navbar = () => {
   const togglehDropdown = () => {
     sethDropdown((prevState) => !prevState);
   };
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Reset login state
+  };
 
   return (
     <header>
       <nav>
         <ol>
-          <li><Link to="/" className="link">Home</Link></li>
+          <li><Link to="/home" className="link">Home</Link></li>
           <li><Link to="/about" className="link">About</Link></li>
           <li><Link to="/gallery" className="link">Gallery</Link></li>
           <li><Link to="/contact" className="link">Contact</Link></li>
@@ -60,6 +63,7 @@ const Navbar = () => {
               </ul>
             )}
           </li>
+          <li><Link to="/" className="link" onClick={handleLogout}>Logout</Link></li>
         </ol>
       </nav>
     </header>

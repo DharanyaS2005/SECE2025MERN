@@ -3,9 +3,12 @@ const path = require('path');
 const mdb = require('mongoose');
 const dotenv = require('dotenv');
 const Signup = require("./models/signupSchema");
+const bcrypt =require('bcrypt');
+const cors =require('cors');
+
 const app = express();
 dotenv.config();
-
+app.use(cors())
 app.use(express.json());
 
 mdb.connect(process.env.MONGODB_URL)
@@ -24,16 +27,17 @@ app.get('/static', (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.post('/signup', (req, res) => {
+app.post('/signup', async(req, res) => {
   var { firstname, lastname, username, email, password } = req.body;
+  var hashedpassword=await bcrypt.hash(password,10)
+  console.log(hashedpassword);
   try {
-    console.log("inside try");
     const newCustomer = new Signup({
       firstname: firstname,
       lastname: lastname,
       username: username,
       email: email,
-      password: password,
+      password: hashedpassword,
     });
 
     console.log(newCustomer);
@@ -50,13 +54,14 @@ app.post('/login', async (req, res) => {
   try {
     const user = await Signup.findOne({ email: email });
     if (!user) {
-      return res.status(404).send("User not found");
+      return res.status(404).send({response:"User not found",loginStatus:false});
     }
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
-    if (user.password === password) {
-      res.status(200).send("Login successful");
+    if (isPasswordCorrect) {
+      res.status(200).send({response:"Login successful",loginStatus:true});
     } else {
-      res.status(401).send("Incorrect password");
+      res.status(401).send({response:"Incorrect password",loginStatus:false});
     }
   } catch (err) {
     res.status(500).send("Error during login");

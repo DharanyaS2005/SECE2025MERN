@@ -1,40 +1,79 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
+const Signup=()=>{
+  var [firstname, setFirstname] = useState('');
+  var [lastname, setLastname] = useState('');
+  var [username, setUsername] = useState('');
+  var [email, setEmail] = useState('');
+  var [password, setPassword] = useState('');
+  var navigate= useNavigate();
 
-function Signup({ onSignup }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const handleSignup=async(event)=>{
+    event.preventDefault()
+    
+    try{
+      console.log("Event Trigger");
+      const req = await axios.post("http://localhost:3001/signup",{
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      email: email,
+      password: password,
+    })
+   console.log(req);
+   alert(req.data)
+   navigate('/login');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSignup(username, password); 
-  };
+  }catch(err){
+      console.log(err)
+  }
+}
 
   return (
     <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+       <form method = "POST"  onSubmit={handleSignup}>
+          <label>Firstname:</label>
+          <input
+            type="text"
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value)}
+            required
+          /><br/>
+          <label>Lastname:</label>
+          <input
+            type="text"
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
+            required
+          /><br/>
           <label>Username:</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
+            required
+          /><br/>
+          <label>Email:</label>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          /><br/>
           <label>Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+            required
+          /><br/>
+          
         <button type="submit">Signup</button>
-      </form>
-      <p>
-        Already have an account? <Link to="/">Login here</Link>
-      </p>
+        </form>
+        <p>
+          Already have account??<a href="/login">Login</a>
+        </p>
     </div>
   );
 }
